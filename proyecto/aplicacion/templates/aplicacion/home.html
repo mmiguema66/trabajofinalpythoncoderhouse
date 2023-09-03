@@ -1,0 +1,33 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<div class='bg-primary'>
+  <h1>rojo</h1>
+</div>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<div class="container-fluid text-center ">
+    <div class="d-flex justify-content-center">
+        <h2 class='text-center mt-4 mb-4'>MECANICA SERGIO ARIEL</h2>
+        <form action="" method="post"  >
+            {% csrf_token %} 
+            <table>
+            {{ form.as_table }}
+            </table>
+        </form>
+
+    </div>
+
+    <div class="">
+            <div class="">
+            <img src="{% static 'img/1.png' %}" alt="Mi Imagen" class=" col-12 h-50">
+           
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}

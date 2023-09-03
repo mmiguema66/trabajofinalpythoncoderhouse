@@ -1,0 +1,68 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    marcas
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <div class="container"> 
+        <table>
+            <tr>
+                <td width="200"><h1>Agregar marca</h1></td>
+                <td>
+                    <a
+                    href="{% url 'create_marca' %}"
+                    class="btn btn-primary btn-sm"
+                    ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+                    </a>
+                </td>
+            </tr>
+        </table>  
+        
+        <h2 class="text-center text-decoration-underline">Marcas</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Año</th>
+                </tr>
+            </thead>
+            <tbody>
+
+    </div>
+
+{% for marca in marcas  %}
+        <tr>
+            <td>{{ marca.id }}</td>
+            <td>{{ marca.marca }}</td>
+            <td>{{ marca.modelo }}</td>
+            <td>{{ marca.año }}</td>
+            <td>
+                <a
+                    href="{% url 'update_marca' marca.id %}"
+                    class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a
+                    href="{% url 'delete_marca' marca.id %}"
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+            </td>  
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+<div class="container">
+    <img src="{% static 'img/4.jpg' %}" alt="diagnostico" class=" col-8 h-10">
+
+</div>
+{% endblock contenido %}
+    

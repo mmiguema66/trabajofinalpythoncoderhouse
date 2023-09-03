@@ -1,0 +1,65 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    patente
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <div class="container">
+        <table>
+            <tr>
+                <td width="200"><h1> Agregar patente</h1></td>
+                <td>
+                    <a
+                    href="{% url 'create_patente' %}"
+                    class="btn btn-primary btn-sm"
+                    ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+                    </a>
+                </td>
+            </tr>
+        </table>  
+        
+        <h2 class="text-center text-decoration-underline">Patente</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Patente</th>
+                    <th scope="col">Motor</th>
+                </tr>
+            </thead>
+            <tbody>
+
+    </div>
+
+{% for patente in patente_list  %}
+        <tr>
+            <td>{{ patente.id }}</td>
+            <td>{{ patente.patente }}</td>
+            <td>{{ patente.motor }}</td>
+            <td>
+                <a
+                    href="{% url 'update_patente' patente.id %}"
+                    class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a
+                    href="{% url 'delete_patente' patente.id %}"
+                    class="btn btn-danger"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+            </td>  
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+<div class="container">
+    <img src="{% static 'img/5.jpg' %}" alt="diagnostico" class=" col-8 h-10">
+
+</div>
+{% endblock contenido %}
